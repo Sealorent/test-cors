@@ -12,7 +12,8 @@ export const useApi = defineStore('api', () => {
     const state: State = {
         response: 0,
     }
-    const baseUrl = 'http://173.212.232.47:8140';
+    const baseUrl = 'https://api-gateway-member.cap.lcpare.com';
+    
     // const baseUrl = 'http://localhost:8040';
     async function getResponse() {
         try {
