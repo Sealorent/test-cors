@@ -13,14 +13,14 @@ export const useApi = defineStore('api', () => {
         response: 0,
     }
     const baseUrl = 'https://api-gateway-member.cap.lcpare.com';
-    
     // const baseUrl = 'http://localhost:8040';
+    
     async function getResponse() {
         try {
             const config = {
                 method: 'post',
-                withCredentials: true,
-                credentials: 'include',
+                // withCredentials: true,
+                // credentials: 'include',
                 url: baseUrl + '/api/guest/sign-in', // Corrected the URL
                 data: {
                     "email": "kayyisaljund@gmail.com",
@@ -38,7 +38,7 @@ export const useApi = defineStore('api', () => {
 
             const cookie = document.cookie;
             
-            console.log(cookie);
+            // console.log(cookie);
             state.response = response.data; // Assuming your response contains data property
             sessionStorage.setItem('token', response.data['message']['token']);
             sessionStorage.setItem('cookie', response.data['session_id']);
@@ -52,8 +52,8 @@ export const useApi = defineStore('api', () => {
         try {
             const config = {
                 method: 'get',
-                withCredentials: true,
-                credentials: 'include',
+                // withCredentials: true,
+                // credentials: 'include',
                 url:  baseUrl + '/api/lc/learning-video-category/master', // Corrected the URL
                 headers :{
                     "Authorization": sessionStorage.getItem('token'),
